@@ -87,7 +87,7 @@ router.get('/:id/posts', (req, res) => {
   const { id } = req.params
 
   // select * from post as p
-  db('posts')
+  db('posts as p')
     .join('users as u', 'u.id', '=', 'p.user_id')
     .where({ user_id: id })
     .then(posts => {
